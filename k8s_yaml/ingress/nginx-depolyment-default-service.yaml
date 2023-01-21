@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-default
+spec:
+  selector:
+    matchLabels:
+      app: nginx-default
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx-default
+    spec:
+      containers:
+        - name: nginx-default
+          image: nginx:1.14.2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ing-default
+spec:
+  selector:
+    app: nginx-default
+  ports:
+    - port: 80
+      targetPort: 80
+      name: http
+  type: ClusterIP

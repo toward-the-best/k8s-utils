@@ -1,0 +1,31 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-nginx
+  labels:
+    app: pod-nginx
+spec:
+  containers:
+  - name: nginx
+    image: nginx:1.14.2      
+    ports:
+    - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-nginx-service
+  labels:
+    run: my-nginx-service
+spec:
+  type: NodePort     # 서비스 타입
+  selector:
+    app: pod-nginx
+  ports:
+  - port: 80         # host에서 open된 port
+    targetPort: 80   # pod에서 open된 port
+    protocol: TCP
+    name: http
+
+
+

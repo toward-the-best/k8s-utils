@@ -1,0 +1,30 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-ip
+spec:
+  selector:
+    matchLabels:
+      app: nginx-ip
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: nginx-ip
+    spec:
+      containers:
+        - name: nginx-ip
+          image: sysnet4admin/chk-hn
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ing-ip
+spec:
+  selector:
+    app: nginx-ip
+  ports:
+    - port: 80
+      targetPort: 80
+      name: http
+  type: ClusterIP
