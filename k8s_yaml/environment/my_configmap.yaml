@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-configmap
+data:
+  # 환경 변수를 만들어서 사용
+  APP_COLOR: blue
+  env_string: hahahah lol
+
+  # file을 만들어서 안에 값을 넣어사용 keys
+  game.properties: |
+    enemy.types=aliens,monsters
+    player.maximum-lives=5    
+  user-interface.properties: |
+    color.good=purple
+    color.bad=yellow
+    allow.textmode=true    
