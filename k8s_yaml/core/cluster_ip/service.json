@@ -1,0 +1,69 @@
+{
+    "apiVersion": "v1",
+    "kind": "Endpoints",
+    "metadata": {
+        "annotations": {
+            "endpoints.kubernetes.io/last-change-trigger-time": "2023-07-23T12:23:13Z"
+        },
+        "creationTimestamp": "2023-07-23T12:23:13Z",
+        "labels": {
+            "app": "nginx"
+        },
+        "name": "my-service",
+        "namespace": "default",
+        "resourceVersion": "847625",
+        "uid": "db5685a1-89a5-4cf9-b3f5-42b47ce8b1a9"
+    },
+    "subsets": [
+        {
+            "addresses": [
+                {
+                    "ip": "10.32.0.22",
+                    "nodeName": "worker1",
+                    "targetRef": {
+                        "kind": "Pod",
+                        "name": "cluster-nginx-deployment-c87868889-tg4b5",
+                        "namespace": "default",
+                        "uid": "4178b7f6-36f5-4ba1-bf37-b674b764f265"
+                    }
+                },
+                {
+                    "ip": "10.32.0.23",
+                    "nodeName": "worker1",
+                    "targetRef": {
+                        "kind": "Pod",
+                        "name": "cluster-nginx-deployment-c87868889-nxllq",
+                        "namespace": "default",
+                        "uid": "31b4edd2-4f9f-4275-afd5-323b3e1f87d3"
+                    }
+                },
+                {
+                    "ip": "10.40.0.25",
+                    "nodeName": "worker2",
+                    "targetRef": {
+                        "kind": "Pod",
+                        "name": "cluster-nginx-deployment-c87868889-l96qt",
+                        "namespace": "default",
+                        "uid": "d6f73707-3e87-48df-b8fb-c767447838c9"
+                    }
+                },
+                {
+                    "ip": "10.40.0.26",
+                    "nodeName": "worker2",
+                    "targetRef": {
+                        "kind": "Pod",
+                        "name": "cluster-nginx-deployment-c87868889-kv5dt",
+                        "namespace": "default",
+                        "uid": "88e13431-9cc8-4bab-9cfb-995d99dd1b9d"
+                    }
+                }
+            ],
+            "ports": [
+                {
+                    "port": 80,
+                    "protocol": "TCP"
+                }
+            ]
+        }
+    ]
+}

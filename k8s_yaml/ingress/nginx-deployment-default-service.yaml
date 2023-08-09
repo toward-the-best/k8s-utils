@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lb-nginx-deployment
+  labels:
+    app: lb-nginx-deployment
+spec:
+  replicas: 1
+  selector: # Deployment를 이용해 배포할 Pod로 만들 template을 선택 합니다.
+    matchLabels:
+      app: ing-default
+  template:
+    metadata: # template로 만들 pod를 정의하는것과 동일
+      labels:
+        app: ing-default
+    spec:
+      containers: #container들을 정의 합니다.
+      - name: container-nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: ing-default
+spec:
+  type: ClusterIP      # 서비스 타입
+  ports:
+    - targetPort: 80   # pod에서 open된 port
+      port: 80         # Pod와 연결된 service port
+  selector:
+    app: ing-default

@@ -5,4 +5,4 @@ metadata:
   namespace: default
 spec:
   type: ExternalName
-  externalName: www.google.com
+  externalName: www.doitnowman.com

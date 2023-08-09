@@ -6,7 +6,7 @@ spec:
   selector:
     matchLabels:
       app: nginx-ip
-  replicas: 2 # tells deployment to run 2 pods matching the template
+  replicas: 1 # tells deployment to run 2 pods matching the template
   template:
     metadata:
       labels:
@@ -27,4 +27,4 @@ spec:
     - port: 80
       targetPort: 80
       name: http
-  type: ClusterIP
+  type: ClusterIP 
