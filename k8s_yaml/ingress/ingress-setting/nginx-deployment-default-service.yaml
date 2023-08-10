@@ -25,7 +25,7 @@ kind: Service
 metadata:
   name: ing-default
 spec:
-  type: ClusterIP      # 서비스 타입
+  type: NodePort      # 서비스 타입
   ports:
     - targetPort: 80   # pod에서 open된 port
       port: 80         # Pod와 연결된 service port

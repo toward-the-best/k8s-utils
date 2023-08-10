@@ -3,21 +3,21 @@ kind: Ingress
 metadata:
   name: nginx-ingress
   annotations:
-        nginx.ingress.kubernetes.io/rewrite-target: /
-        kubernetes.io/ingress.class: "ip"
+    nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx-example
+  ingressClassName: nginx
   rules:
-  - http:
+  - host: "master.com"
+    http:
       paths:
-      - path: /
+      - path: "/1"
         pathType: Prefix
         backend:
           service:
             name: ing-default
             port:
               number: 80
-      - path: /ip
+      - path: "/ip"
         pathType: Prefix
         backend:
           service:
