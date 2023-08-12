@@ -364,7 +364,7 @@ spec:
     app.kubernetes.io/component: controller
     app.kubernetes.io/instance: ingress-nginx
     app.kubernetes.io/name: ingress-nginx
-  type: NodePort
+  type: NodePort 
 ---
 apiVersion: v1
 kind: Service
@@ -422,7 +422,7 @@ spec:
         - /nginx-ingress-controller
         - --election-id=ingress-nginx-leader
         - --controller-class=k8s.io/ingress-nginx
-        - --ingress-class=nginx
+        - --ingress-class=nginx-two
         - --configmap=$(POD_NAMESPACE)/ingress-nginx-controller
         - --validating-webhook=:8443
         - --validating-webhook-certificate=/usr/local/certificates/cert
@@ -607,7 +607,7 @@ metadata:
     app.kubernetes.io/name: ingress-nginx
     app.kubernetes.io/part-of: ingress-nginx
     app.kubernetes.io/version: 1.8.1
-  name: nginx
+  name: nginx-two
 spec:
   controller: k8s.io/ingress-nginx
 ---

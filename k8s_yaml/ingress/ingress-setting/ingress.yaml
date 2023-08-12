@@ -5,10 +5,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
-  ingressClassName: nginx
+  ingressClassName: nginx-two
   rules:
-  - host: "master.com"
-    http:
+  - http:
       paths:
       - path: "/1"
         pathType: Prefix
