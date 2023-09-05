@@ -8,6 +8,5 @@ spec:
   accessModes:
     - ReadWriteOnce  # 접근 모드
   persistentVolumeReclaimPolicy: Retain  # 재활용 정책
-  storageClassName: standard  # 스토리지 클래스
   hostPath:
-    path: "/roo/tdata"  # 물리적 위치 (예시)
+    path: "/roo/data"  # 물리적 위치 (예시)
