@@ -1,0 +1,9 @@
+apiVersion: authentication.k8s.io/v1
+kind: TokenRequest
+metadata:
+  name: my-service-account-name
+  namespace: my-namespace
+spec:
+  audiences: ["my-audience"]
+  expirationSeconds: 3600 # 토큰 유효 기간을 초 단위로 설정합니다.
+
